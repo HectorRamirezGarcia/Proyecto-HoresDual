@@ -17,8 +17,8 @@ public class Pieza {
     public ArrayList<Coordenadas> movperm(Coordenadas coordenadas , posicion[][] tablero){
         ArrayList<Coordenadas> movperm = new ArrayList<>();
         Coordenadas c;
-        for(int i=0;i<8;i++){
-            for(int j=0;j<8;j++){
+        for(int i=0;i<9;i++){
+            for(int j=0;j<5;j++){
                 c = new Coordenadas(i,j);
                 movperm.add(c);
             }
