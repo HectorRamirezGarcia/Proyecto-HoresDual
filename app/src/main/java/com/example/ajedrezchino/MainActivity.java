@@ -377,21 +377,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
         settablero();
-        ultimaposicion = new Coordenadas(posicionclickada.getX(), posicionclickada.getY());
-        listacoordenadas.clear();
-        listacoordenadas = tablero[posicionclickada.getX()][posicionclickada.getY()].getpieza().movperm(posicionclickada, tablero);
-        algoseleccionado = true;
-        tablero[posicionclickada.getX()][posicionclickada.getY()].setpieza(tablero[ultimaposicion.getX()][ultimaposicion.getY()].getpieza());
-    }
-
-    private boolean moverselec(ArrayList<Coordenadas> piece, Coordenadas coordinate) {
-        Boolean permitido = false;
-        for(int i =0;i<piece.size();i++){
-            if(piece.get(i).getX() == coordinate.getX()  &&  piece.get(i).getY() == coordinate.getY()){
-                permitido = true;
-                break;
-            }
-        }
-        return permitido;
     }
 }
