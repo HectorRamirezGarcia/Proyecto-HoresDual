@@ -7,11 +7,11 @@ import java.util.ArrayList;
 
 public class Pieza {
 
-    private boolean blanca;
+    private boolean pieza;
     //si este boobleano es falso todas son negras
 
-    Pieza(boolean blanca) {
-        this.blanca = blanca;
+    Pieza(boolean j) {
+        this.pieza = j;
     }
 
     public ArrayList<Coordenadas> movperm(Coordenadas coordenadas , posicion[][] tablero){
@@ -26,8 +26,8 @@ public class Pieza {
         return movperm;
     }
 
-    public boolean esblanca() {
-        return blanca;
+    public boolean espieza() {
+        return pieza;
     }
 }
 

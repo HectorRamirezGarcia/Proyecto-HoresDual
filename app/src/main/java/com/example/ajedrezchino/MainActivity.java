@@ -15,7 +15,6 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     public posicion[][] tablero = new posicion[9][5];
-    public posicion[][] tablero2 = new posicion[9][5];
     public TextView[][] ftablero = new TextView[9][5];
     public Coordenadas posicionclickada = new Coordenadas(0, 0);
     public Boolean algoseleccionado = false;
@@ -40,22 +39,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 5; j++) {
                 tablero[i][j] = new posicion(null);
-                tablero2[i][j] = new posicion(null);
             }
         }
 
         tablero[4][1].setpieza(xgeneral);
         ftablero[4][1] = (TextView) findViewById(R.id.E1);
-
-        for(int g=0;g<9;g++){
-            for(int h=0;h<5;h++){
-                if(tablero[g][h].getpieza()==null){
-                    tablero2[g][h].setpieza(null);
-                }else{
-                    tablero2[g][h].setpieza(tablero[g][h].getpieza());
-                }
-            }
-        }
         algoseleccionado = false;
         settablero();
 
@@ -376,6 +364,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         }
+
         settablero();
     }
 }
