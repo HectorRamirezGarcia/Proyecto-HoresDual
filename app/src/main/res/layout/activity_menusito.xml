@@ -8,7 +8,7 @@
     tools:context=".Menusito">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/idTextMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="173dp"
@@ -33,6 +33,10 @@
         android:layout_height="227dp"
         android:background="@drawable/button_rounded"
         android:fontFamily="@font/baloo_da"
+        android:shadowColor="@android:color/darker_gray"
+        android:shadowDx="3"
+        android:shadowDy="2"
+        android:shadowRadius="1.8"
         android:text="Start"
         android:textColor="@android:color/background_light"
         android:textSize="30sp"
