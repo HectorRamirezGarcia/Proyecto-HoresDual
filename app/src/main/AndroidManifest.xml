@@ -9,12 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Help">
-            android:theme="@style/AppTheme.CustomTheme
-        </activity>
-        <activity android:name=".Menusito" />
+        <activity android:name=".Help"
+            android:theme="@style/AppTheme.CustomTheme"
+        ></activity>
+        <activity android:name=".About_us"
+            android:theme="@style/AppTheme.CustomTheme"
+            ></activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".nombre" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Menusito">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

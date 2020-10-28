@@ -422,9 +422,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tablero[posicionclickada.getX()][posicionclickada.getY()].setpieza(tablero[ultimaposicion.getX()][ultimaposicion.getY()].getpieza());
         tablero[ultimaposicion.getX()][ultimaposicion.getY()].setpieza(null);
         ftablero[ultimaposicion.getX()][ultimaposicion.getY()].setBackgroundResource(0);
+        algoseleccionado = true;
         ultimaposicion = new Coordenadas(posicionclickada.getX(), posicionclickada.getY());
         settablero();
-
     }
     //
 }
