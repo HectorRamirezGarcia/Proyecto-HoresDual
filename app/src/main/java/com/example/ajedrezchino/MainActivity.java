@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         posicionclickada.setRow(row);
         posicionclickada.setCol(col);
 
-        Log.i("vegetal", "Click");
+
         Log.i("vegetal", Integer.toString(row));
         Log.i("vegetal", Integer.toString(col));
 
