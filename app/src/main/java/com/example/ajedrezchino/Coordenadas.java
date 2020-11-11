@@ -2,30 +2,30 @@ package com.example.ajedrezchino;
 
 public class Coordenadas {
 
-    private int x;
-    private int y;
+    private int row;
+    private int col;
 
-    public Coordenadas(int x, int y) {
-        this.x = x;
-        this.y = y;
+    public Coordenadas(int row, int col) {
+        this.row = row;
+        this.col = col;
     }
 
-    void setX(int x)
+    void setRow(int row)
     {
-        this.x = x;
+        this.row = row;
     }
 
-    public int getX() {
+    public int getRow() {
 
-        return x;
+        return row;
     }
 
-    public int getY() {
+    public int getCol() {
 
-        return y;
+        return col;
     }
 
-    void setY(int y) {
-        this.y = y;
+    void setCol(int col) {
+        this.col = col;
     }
 }

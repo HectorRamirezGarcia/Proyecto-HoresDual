@@ -19,97 +19,97 @@ public class general extends Pieza {
         movperm.clear();
         Coordenadas c;
 
-        if((coordenadas.getX()+1) <9 && (coordenadas.getY()+1)<9){
-            if(tablero[coordenadas.getX()+1][coordenadas.getY()+1].getpieza() == null){
-                c = new Coordenadas(coordenadas.getX()+1 , coordenadas.getY()+1);
+        if((coordenadas.getRow()+1) <9 && (coordenadas.getCol()+1)<9){
+            if(tablero[coordenadas.getRow()+1][coordenadas.getCol()+1].getpieza() == null){
+                c = new Coordenadas(coordenadas.getRow()+1 , coordenadas.getCol()+1);
                 movperm.add(c);
             }else{
-                if(tablero[coordenadas.getX()+1][coordenadas.getY()+1].getpieza().espieza() != tablero[coordenadas.getX()][coordenadas.getY()].getpieza().espieza()){
-                    c = new Coordenadas(coordenadas.getX()+1 , coordenadas.getY()+1);
+                if(tablero[coordenadas.getRow()+1][coordenadas.getCol()+1].getpieza().espieza() != tablero[coordenadas.getRow()][coordenadas.getCol()].getpieza().espieza()){
+                    c = new Coordenadas(coordenadas.getRow()+1 , coordenadas.getCol()+1);
                     movperm.add(c);
                 }
             }
         }
 
-        if((coordenadas.getY()+1)<9){
-            if(tablero[coordenadas.getX()][coordenadas.getY()+1].getpieza() == null){
-                c = new Coordenadas(coordenadas.getX() , coordenadas.getY()+1);
+        if((coordenadas.getCol()+1)<9){
+            if(tablero[coordenadas.getRow()][coordenadas.getCol()+1].getpieza() == null){
+                c = new Coordenadas(coordenadas.getRow() , coordenadas.getCol()+1);
                 movperm.add(c);
             }else{
-                if(tablero[coordenadas.getX()][coordenadas.getY()+1].getpieza().espieza() != tablero[coordenadas.getX()][coordenadas.getY()].getpieza().espieza()){
-                    c = new Coordenadas(coordenadas.getX() , coordenadas.getY()+1);
+                if(tablero[coordenadas.getRow()][coordenadas.getCol()+1].getpieza().espieza() != tablero[coordenadas.getRow()][coordenadas.getCol()].getpieza().espieza()){
+                    c = new Coordenadas(coordenadas.getRow() , coordenadas.getCol()+1);
                     movperm.add(c);
                 }
             }
         }
 
-        if((coordenadas.getX()-1) >=0 && (coordenadas.getY()+1)<9){
-            if(tablero[coordenadas.getX()-1][coordenadas.getY()+1].getpieza() == null){
-                c = new Coordenadas(coordenadas.getX()-1 , coordenadas.getY()+1);
+        if((coordenadas.getRow()-1) >=0 && (coordenadas.getCol()+1)<9){
+            if(tablero[coordenadas.getRow()-1][coordenadas.getCol()+1].getpieza() == null){
+                c = new Coordenadas(coordenadas.getRow()-1 , coordenadas.getCol()+1);
                 movperm.add(c);
             }else{
-                if(tablero[coordenadas.getX()-1][coordenadas.getY()+1].getpieza().espieza() != tablero[coordenadas.getX()][coordenadas.getY()].getpieza().espieza()){
-                    c = new Coordenadas(coordenadas.getX()-1 , coordenadas.getY()+1);
+                if(tablero[coordenadas.getRow()-1][coordenadas.getCol()+1].getpieza().espieza() != tablero[coordenadas.getRow()][coordenadas.getCol()].getpieza().espieza()){
+                    c = new Coordenadas(coordenadas.getRow()-1 , coordenadas.getCol()+1);
                     movperm.add(c);
                 }
             }
         }
 
-        if((coordenadas.getX()+1) <9 ){
-            if(tablero[coordenadas.getX()+1][coordenadas.getY()].getpieza() == null){
-                c = new Coordenadas(coordenadas.getX()+1 , coordenadas.getY());
+        if((coordenadas.getRow()+1) <9 ){
+            if(tablero[coordenadas.getRow()+1][coordenadas.getCol()].getpieza() == null){
+                c = new Coordenadas(coordenadas.getRow()+1 , coordenadas.getCol());
                 movperm.add(c);
             }else{
-                if(tablero[coordenadas.getX()+1][coordenadas.getY()].getpieza().espieza() != tablero[coordenadas.getX()][coordenadas.getY()].getpieza().espieza()){
-                    c = new Coordenadas(coordenadas.getX()+1 , coordenadas.getY());
+                if(tablero[coordenadas.getRow()+1][coordenadas.getCol()].getpieza().espieza() != tablero[coordenadas.getRow()][coordenadas.getCol()].getpieza().espieza()){
+                    c = new Coordenadas(coordenadas.getRow()+1 , coordenadas.getCol());
                     movperm.add(c);
                 }
             }
         }
 
-        if((coordenadas.getX()-1) <9 ){
-            if(tablero[coordenadas.getX()-1][coordenadas.getY()].getpieza() == null){
-                c = new Coordenadas(coordenadas.getX()-1 , coordenadas.getY());
+        if((coordenadas.getRow()-1) <9 ){
+            if(tablero[coordenadas.getRow()-1][coordenadas.getCol()].getpieza() == null){
+                c = new Coordenadas(coordenadas.getRow()-1 , coordenadas.getCol());
                 movperm.add(c);
             }else{
-                if(tablero[coordenadas.getX()-1][coordenadas.getY()].getpieza().espieza() != tablero[coordenadas.getX()][coordenadas.getY()].getpieza().espieza()){
-                    c = new Coordenadas(coordenadas.getX()-1 , coordenadas.getY());
+                if(tablero[coordenadas.getRow()-1][coordenadas.getCol()].getpieza().espieza() != tablero[coordenadas.getRow()][coordenadas.getCol()].getpieza().espieza()){
+                    c = new Coordenadas(coordenadas.getRow()-1 , coordenadas.getCol());
                     movperm.add(c);
                 }
             }
         }
 
-        if((coordenadas.getX()+1) <9 && (coordenadas.getY()-1)>=0){
-            if(tablero[coordenadas.getX()+1][coordenadas.getY()-1].getpieza() == null){
-                c = new Coordenadas(coordenadas.getX()+1 , coordenadas.getY()-1);
+        if((coordenadas.getRow()+1) <9 && (coordenadas.getCol()-1)>=0){
+            if(tablero[coordenadas.getRow()+1][coordenadas.getCol()-1].getpieza() == null){
+                c = new Coordenadas(coordenadas.getRow()+1 , coordenadas.getCol()-1);
                 movperm.add(c);
             }else{
-                if(tablero[coordenadas.getX()+1][coordenadas.getY()-1].getpieza().espieza() != tablero[coordenadas.getX()][coordenadas.getY()].getpieza().espieza()){
-                    c = new Coordenadas(coordenadas.getX()+1 , coordenadas.getY()-1);
+                if(tablero[coordenadas.getRow()+1][coordenadas.getCol()-1].getpieza().espieza() != tablero[coordenadas.getRow()][coordenadas.getCol()].getpieza().espieza()){
+                    c = new Coordenadas(coordenadas.getRow()+1 , coordenadas.getCol()-1);
                     movperm.add(c);
                 }
             }
         }
 
-        if((coordenadas.getY()-1)>=0){
-            if(tablero[coordenadas.getX()][coordenadas.getY()-1].getpieza() == null){
-                c = new Coordenadas(coordenadas.getX() , coordenadas.getY()-1);
+        if((coordenadas.getCol()-1)>=0){
+            if(tablero[coordenadas.getRow()][coordenadas.getCol()-1].getpieza() == null){
+                c = new Coordenadas(coordenadas.getRow() , coordenadas.getCol()-1);
                 movperm.add(c);
             }else{
-                if(tablero[coordenadas.getX()][coordenadas.getY()-1].getpieza().espieza() != tablero[coordenadas.getX()][coordenadas.getY()].getpieza().espieza()){
-                    c = new Coordenadas(coordenadas.getX() , coordenadas.getY()-1);
+                if(tablero[coordenadas.getRow()][coordenadas.getCol()-1].getpieza().espieza() != tablero[coordenadas.getRow()][coordenadas.getCol()].getpieza().espieza()){
+                    c = new Coordenadas(coordenadas.getRow() , coordenadas.getCol()-1);
                     movperm.add(c);
                 }
             }
         }
 
-        if((coordenadas.getX()-1) <9 && (coordenadas.getY()-1)>=0){
-            if(tablero[coordenadas.getX()-1][coordenadas.getY()-1].getpieza() == null){
-                c = new Coordenadas(coordenadas.getX()-1 , coordenadas.getY()-1);
+        if((coordenadas.getRow()-1) <9 && (coordenadas.getCol()-1)>=0){
+            if(tablero[coordenadas.getRow()-1][coordenadas.getCol()-1].getpieza() == null){
+                c = new Coordenadas(coordenadas.getRow()-1 , coordenadas.getCol()-1);
                 movperm.add(c);
             }else{
-                if(tablero[coordenadas.getX()-1][coordenadas.getY()-1].getpieza().espieza() != tablero[coordenadas.getX()][coordenadas.getY()].getpieza().espieza()){
-                    c = new Coordenadas(coordenadas.getX()-1 , coordenadas.getY()-1);
+                if(tablero[coordenadas.getRow()-1][coordenadas.getCol()-1].getpieza().espieza() != tablero[coordenadas.getRow()][coordenadas.getCol()].getpieza().espieza()){
+                    c = new Coordenadas(coordenadas.getRow()-1 , coordenadas.getCol()-1);
                     movperm.add(c);
                 }
             }
