@@ -19,19 +19,10 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     public posicion[][] tablero = new posicion[9][5];
-    public posicion[][] tablero2 = new posicion[9][5];
     public TextView[][] ftablero = new TextView[9][5];
-    public TextView[][] fondodetablero = new TextView[9][5];
-    public ArrayList<posicion[][]> ultimovimiento = new ArrayList<>();
-    public TextView juego_terminado,titulo,ganador;
     public Coordenadas posicionclickada = new Coordenadas(0, 0);
-    public ArrayList<Coordenadas> listacoordenadas = new ArrayList<>();
-    public Boolean algoseleccionado = false;
-    public LinearLayout opciones_peon;
-    public Boolean Primerturno;
-    public Boolean eleccion;
-    public Coordenadas ultimaposicion = null ;
-    public int numeromovimientos;
+    public int contador = 0;
+    public Coordenadas ultimaposicion = null;
 
     Pieza xgeneral, ygeneral;
 
@@ -43,7 +34,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void inicializartablero() {
-        // "x" es la parte de arriba (negras) y "y" la de abajo de las piezas (blancas)
         xgeneral = new general(false);
         ygeneral = new general(true);
 
@@ -107,6 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ftablero[7][4] = (TextView) findViewById(R.id.H5);
         ftablero[8][4] = (TextView) findViewById(R.id.I5);
 
+
         settablero();
 
     }
@@ -153,254 +144,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.i("vegetal", Integer.toString(row));
         Log.i("vegetal", Integer.toString(col));
 
-       // tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(new general(true));
-      //  ftablero[posicionclickada.getCol()][posicionclickada.getRow()].setBackgroundResource(0);
-       // settablero();
-
-        if (!algoseleccionado) {
-            if(tablero[posicionclickada.getCol()][posicionclickada.getRow()].getpieza() == null) {
-                reypeligro();
-                return;
-            }else{
-                if(tablero[posicionclickada.getCol()][posicionclickada.getRow()].getpieza().espieza() != Primerturno){
-                    reypeligro();
-                    return;
-                }else{
-                    listacoordenadas.clear();
-                    listacoordenadas = tablero[posicionclickada.getCol()][posicionclickada.getRow()].getpieza().movperm(posicionclickada, tablero);
-                    fondodetablero[posicionclickada.getCol()][posicionclickada.getRow()].setBackgroundResource(R.color.colorWhite);
-                    setColorposicionperm(listacoordenadas);
-                    algoseleccionado = true;
-                }
-            }
-        } else {
-            if(tablero[posicionclickada.getCol()][posicionclickada.getRow()].getpieza() == null){
-                if(moverselec(listacoordenadas , posicionclickada)){
-
-                    registrotablero();
-                    if(tablero[posicionclickada.getCol()][posicionclickada.getRow()].getpieza() instanceof general){
-                        if(tablero[posicionclickada.getCol()][posicionclickada.getRow()].getpieza().espieza() != Primerturno){
-                            juego_terminado.setVisibility(View.VISIBLE);
-
-                            //test
-                            titulo.setVisibility(View.INVISIBLE);
-                        }
-                    }
-                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(tablero[ultimaposicion.getCol()][ultimaposicion.getRow()].getpieza());
-                    tablero[ultimaposicion.getCol()][ultimaposicion.getRow()].setpieza(null);
-
-                    reypeligro();
-                    resetcolorposicionperm(listacoordenadas);
-                    ftablero[ultimaposicion.getCol()][ultimaposicion.getRow()].setBackgroundResource(0);
-                    resetColorAtultimaposicionition(ultimaposicion);
-                    algoseleccionado = false;
-                    Primerturno = !Primerturno;
-
-                }else{
-                    resetColorAtultimaposicionition(ultimaposicion);
-                    resetcolorposicionperm(listacoordenadas);
-                    algoseleccionado = false;
-                }
-
-            }else{
-                if(tablero[posicionclickada.getCol()][posicionclickada.getRow()].getpieza() == null) {
-                    reypeligro();
-                    return;
-
-                }else{
-                    if(tablero[posicionclickada.getCol()][posicionclickada.getRow()].getpieza() !=null){
-                        if(tablero[posicionclickada.getCol()][posicionclickada.getRow()].getpieza().espieza() != Primerturno){
-                            if(moverselec(listacoordenadas , posicionclickada)){
-                                registrotablero();
-
-                                //si la reina muere esto es global tanto como si muere la tuya como la de el
-                                //el metodo instanceof es -> SI ES UN
-                                if(tablero[posicionclickada.getCol()][posicionclickada.getRow()].getpieza() instanceof general){
-                                    if(tablero[posicionclickada.getCol()][posicionclickada.getRow()].getpieza().espieza() != Primerturno){
-                                        juego_terminado.setVisibility(View.VISIBLE);
-                                    }
-                                }
-
-                                //si muere el rey negro
-                                if(tablero[posicionclickada.getCol()][posicionclickada.getRow()].getpieza() == xgeneral){
-                                    String seleplayer1 = (String) getIntent().getStringExtra("JUGADOR1");
-                                    ganador.setVisibility(View.VISIBLE);
-                                    ganador.setText(seleplayer1+" Ha ganado");
-
-                                    //titulo.setVisibility(View.INVISIBLE);
-                                }
-
-                                //si muere el rey blanco
-                                if(tablero[posicionclickada.getCol()][posicionclickada.getRow()].getpieza() == ygeneral){
-                                    //titulo.setVisibility(View.INVISIBLE);
-
-                                    String seleplayer2 = (String) getIntent().getStringExtra("JUGADOR2");
-                                    ganador.setVisibility(View.VISIBLE);
-                                    ganador.setText(seleplayer2+" Ha ganado");
-                                }
-
-                                tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(tablero[ultimaposicion.getCol()][ultimaposicion.getRow()].getpieza());
-                                tablero[ultimaposicion.getCol()][ultimaposicion.getRow()].setpieza(null);
-
-                                resetcolorposicionperm(listacoordenadas);
-                                ftablero[ultimaposicion.getCol()][ultimaposicion.getRow()].setBackgroundResource(0);
-                                resetColorAtultimaposicionition(ultimaposicion);
-
-                                algoseleccionado = false;
-                                Primerturno = !Primerturno;
-                            }else{
-                                resetColorAtultimaposicionition(ultimaposicion);
-                                resetcolorposicionperm(listacoordenadas);
-                                algoseleccionado = false;
-                            }
-
-                        }else{
-                            if(tablero[posicionclickada.getCol()][posicionclickada.getRow()].getpieza().espieza() != Primerturno){
-                                reypeligro();
-                                return;
-                            }
-
-                            resetColorAtultimaposicionition(ultimaposicion);
-                            resetcolorposicionperm(listacoordenadas);
-
-                            listacoordenadas.clear();
-                            listacoordenadas = tablero[posicionclickada.getCol()][posicionclickada.getRow()].getpieza().movperm(posicionclickada, tablero);
-                            fondodetablero[posicionclickada.getCol()][posicionclickada.getRow()].setBackgroundResource(R.color.colorWhite);
-                            setColorposicionperm(listacoordenadas);
-                            algoseleccionado = true;
-                        }
-                    }
-                }
-            }
-        }
-
-        reypeligro();
+        general((general) xgeneral);
+       // tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+        // ftablero[posicionclickada.getCol()][posicionclickada.getRow()].setBackgroundResource(0);
         ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
         settablero();
-    }
-
-    public void registrotablero(){
-        numeromovimientos++;
-        ultimovimiento.add(numeromovimientos-1 ,tablero2 );
-
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                ultimovimiento.get(numeromovimientos-1)[i][j] = new posicion(null);
-            }
-        }
-
-        for(int g=0;g<8;g++){
-            for(int h=0;h<8;h++){
-                if(tablero[g][h].getpieza()==null){
-                    ultimovimiento.get(numeromovimientos-1)[g][h].setpieza(null);
-                }else{
-                    ultimovimiento.get(numeromovimientos-1)[g][h].setpieza(tablero[g][h].getpieza());
-                }
-            }
-        }
-    }
-
-    //Opcion para volver atras
-    public void atras(View v){
-        if(numeromovimientos>0) {
-
-            for(int g=0;g<8;g++){
-                for(int h=0;h<8;h++){
-                    if(ultimovimiento.get(numeromovimientos-1)[g][h].getpieza()==null){
-                        tablero[g][h].setpieza(null);
-                    }else{
-                        tablero[g][h].setpieza(ultimovimiento.get(numeromovimientos-1)[g][h].getpieza());
-                    }
-                }
-            }
-            numeromovimientos--;
-
-            settablero();
-            for(int i=0;i<8;i++){
-                for(int j=0;j<8;j++){
-                    if((i+j)%2==0){
-                        fondodetablero[i][j].setBackgroundResource(R.color.colorPrimaryDark);
-                    }else{
-                        fondodetablero[i][j].setBackgroundResource(R.color.colorWhite);
-                    }
-                }
-            }
-            reypeligro();
-            Primerturno = !Primerturno;
-            juego_terminado.setVisibility(View.INVISIBLE);
-        }
-    }
-
-    private void resetcolorposicionperm(ArrayList<Coordenadas> listacoordenadas) {
-        for(int i=0; i<listacoordenadas.size(); i++){
-            if((listacoordenadas.get(i).getCol() + listacoordenadas.get(i).getRow())%2==0){
-                fondodetablero[listacoordenadas.get(i).getCol()][listacoordenadas.get(i).getRow()].setBackgroundResource(R.color.colorPrimaryDark);
-            }else {
-                fondodetablero[listacoordenadas.get(i).getCol()][listacoordenadas.get(i).getRow()].setBackgroundResource(R.color.colorWhite);
-            }
-        }
-    }
-
-    void setColorposicionperm(ArrayList<Coordenadas> list){
-
-        for(int i=0; i<list.size(); i++){
-            if(tablero[list.get(i).getCol()][list.get(i).getRow()].getpieza() == null){
-                fondodetablero[list.get(i).getCol()][list.get(i).getRow()].setBackgroundResource(R.color.colorWhite);
-            }else{
-                fondodetablero[list.get(i).getCol()][list.get(i).getRow()].setBackgroundResource(R.color.colorPrimaryDark);
-            }
-        }
-    }
-
-    private boolean moverselec(ArrayList<Coordenadas> piece, Coordenadas coordinate) {
-        Boolean permitido = false;
-        for(int i =0;i<piece.size();i++){
-            if(piece.get(i).getCol() == coordinate.getCol()  &&  piece.get(i).getRow() == coordinate.getRow()){
-                permitido = true;
-                break;
-            }
-        }
-        return permitido;
-    }
-
-    private void resetColorAtultimaposicionition(Coordenadas ultimaposicion){
-        if((ultimaposicion.getCol() + ultimaposicion.getRow())%2==0){
-            fondodetablero[ultimaposicion.getCol()][ultimaposicion.getRow()].setBackgroundResource(R.color.colorPrimaryDark);
-        }else {
-            fondodetablero[ultimaposicion.getCol()][ultimaposicion.getRow()].setBackgroundResource(R.color.colorWhite);
-        }
-    }
-
-    private void reypeligro(){
-        ArrayList<Coordenadas> List = new ArrayList<>();
-
-        for(int i=0;i<8;i++){
-            for(int j=0;j<8;j++){
-                if(tablero[i][j].getpieza() != null){
-                    List.clear();
-                    Coordenadas c = new Coordenadas(i,j);
-                    List = tablero[i][j].getpieza().movperm(c,tablero);
-
-                    for (int x=0;x<List.size();x++){
-                        if(tablero[List.get(x).getCol()][List.get(x).getRow()].getpieza() instanceof general){
-
-                            if((List.get(x).getCol()+List.get(x).getRow())%2==0){
-                                fondodetablero[List.get(x).getCol()][List.get(x).getRow()].setBackgroundResource(R.color.colorPrimaryDark);
-                            }else{
-                                fondodetablero[List.get(x).getCol()][List.get(x).getRow()].setBackgroundResource(R.color.colorWhite);
-                            }
-
-                            if(tablero[i][j].getpieza().espieza() != tablero[List.get(x).getCol()][List.get(x).getRow()].getpieza().espieza()){
-                                fondodetablero[List.get(x).getCol()][List.get(x).getRow()].setBackgroundResource(R.color.material_blue_grey_950);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
 
     }
 
+    public void general (general xgeneral){
+
+        if (tablero[5][0].getpieza() == tablero[posicionclickada.getCol()][posicionclickada.getRow()].getpieza()){
+            contador++;
+            tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+            if (contador == 1){
+                tablero[4][0].setpieza(null);
+            }
+            else {
+                tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+            }
+        }
+
+    }
     //
 }
