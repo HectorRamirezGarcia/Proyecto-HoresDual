@@ -21,9 +21,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public posicion[][] tablero = new posicion[9][5];
     public TextView[][] ftablero = new TextView[9][5];
     public Coordenadas posicionclickada = new Coordenadas(0, 0);
-    public int contador = 0;
+    public int contador = 0, contadorP=0, contMov=0;
     public Coordenadas ultimaposicion = null;
-    boolean algoseleccionado = false;
+    public boolean primeravez = true;
 
     Pieza xgeneral, ygeneral;
 
@@ -145,7 +145,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.i("vegetal", Integer.toString(row));
         Log.i("vegetal", Integer.toString(col));
 
-        general();
+        movimientoGeneral();
+        Log.i("vegetal", String.valueOf(contadorP));
+
        // tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
         // ftablero[posicionclickada.getCol()][posicionclickada.getRow()].setBackgroundResource(0);
         settablero();
@@ -153,27 +155,46 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void general () {
-        if (tablero[posicionclickada.getCol()][posicionclickada.getRow()].getpieza() == null){
-            algoseleccionado = true;
-        }
-
-        if (algoseleccionado = true){
-            if (posicionclickada.getCol() >= 3 && posicionclickada.getCol() <= 5 && posicionclickada.getRow() >= 0 && posicionclickada.getRow() <= 2) {
-                contador++;
-                tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
-                if (contador == 1){
-                    tablero[4][0].setpieza(null);
-                }
-                else {
+        if (posicionclickada.getCol() >= 3 && posicionclickada.getCol() <= 5 && posicionclickada.getRow() >= 0 && posicionclickada.getRow() <= 2) {
+            contador++;
+            tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+            if (contador == 1){
+                tablero[4][0].setpieza(null);
+            }
+            else {
+                if (contMov == 2){
                     if (tablero[ultimaposicion.getRow()][ultimaposicion.getCol()] != tablero[posicionclickada.getCol()][posicionclickada.getRow()]){
                         tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                        contMov = 0;
                     }
                 }
-                ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+                contMov++;
+            }
+            ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+        }
+    }
+    public void movimientoGeneral() {
+        if (primeravez == true){
+            if (tablero[posicionclickada.getCol()][posicionclickada.getRow()] == tablero[4][0]) {
+                contadorP++;
+                primeravez = false;
             }
         }
-        algoseleccionado = false;
+        else {
+            if (tablero[posicionclickada.getCol()][posicionclickada.getRow()] == tablero[ultimaposicion.getRow()][ultimaposicion.getCol()]) {
+                contadorP++;
+            }
+        }
 
+        if (contadorP!=0){
+            general ();
+            contadorP++;
+        }
+
+        if (contadorP == 3){
+            contadorP = 0;
+        }
+        primeravez = false;
     }
 }
     //
