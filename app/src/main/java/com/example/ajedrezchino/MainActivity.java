@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public Coordenadas posicionclickada = new Coordenadas(0, 0);
     public int contador = 0;
     public Coordenadas ultimaposicion = null;
+    boolean algoseleccionado = false;
 
     Pieza xgeneral, ygeneral;
 
@@ -144,27 +145,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.i("vegetal", Integer.toString(row));
         Log.i("vegetal", Integer.toString(col));
 
-        general((general) xgeneral);
+        general();
        // tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
         // ftablero[posicionclickada.getCol()][posicionclickada.getRow()].setBackgroundResource(0);
-        ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
         settablero();
 
     }
 
-    public void general (general xgeneral){
-
-        if (tablero[5][0].getpieza() == tablero[posicionclickada.getCol()][posicionclickada.getRow()].getpieza()){
-            contador++;
-            tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
-            if (contador == 1){
-                tablero[4][0].setpieza(null);
-            }
-            else {
-                tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
-            }
+    public void general () {
+        if (tablero[posicionclickada.getCol()][posicionclickada.getRow()].getpieza() == null){
+            algoseleccionado = true;
         }
 
+        if (algoseleccionado = true){
+            if (posicionclickada.getCol() >= 3 && posicionclickada.getCol() <= 5 && posicionclickada.getRow() >= 0 && posicionclickada.getRow() <= 2) {
+                contador++;
+                tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                if (contador == 1){
+                    tablero[4][0].setpieza(null);
+                }
+                else {
+                    if (tablero[ultimaposicion.getRow()][ultimaposicion.getCol()] != tablero[posicionclickada.getCol()][posicionclickada.getRow()]){
+                        tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                    }
+                }
+                ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+            }
+        }
+        algoseleccionado = false;
+
     }
-    //
 }
+    //

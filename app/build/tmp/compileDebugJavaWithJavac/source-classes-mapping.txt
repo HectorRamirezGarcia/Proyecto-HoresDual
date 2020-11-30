@@ -1,10 +1,15 @@
-com/example/ajedrezchino/Help.java
- com.example.ajedrezchino.Help
- com.example.ajedrezchino.Help$1
+com/example/ajedrezchino/piezas/general.java
+ com.example.ajedrezchino.piezas.general
 com/example/ajedrezchino/About_us.java
  com.example.ajedrezchino.About_us
 com/example/ajedrezchino/BuildConfig.java
  com.example.ajedrezchino.BuildConfig
+com/example/ajedrezchino/posicion.java
+ com.example.ajedrezchino.posicion
+com/example/ajedrezchino/piezas/Pieza.java
+ com.example.ajedrezchino.piezas.Pieza
+com/example/ajedrezchino/Coordenadas.java
+ com.example.ajedrezchino.Coordenadas
 com/example/ajedrezchino/Menusito.java
  com.example.ajedrezchino.Menusito
  com.example.ajedrezchino.Menusito$1
@@ -12,14 +17,9 @@ com/example/ajedrezchino/Menusito.java
  com.example.ajedrezchino.Menusito$3
 com/example/ajedrezchino/SlideAdapter.java
  com.example.ajedrezchino.SlideAdapter
-com/example/ajedrezchino/Coordenadas.java
- com.example.ajedrezchino.Coordenadas
-com/example/ajedrezchino/posicion.java
- com.example.ajedrezchino.posicion
-com/example/ajedrezchino/piezas/Pieza.java
- com.example.ajedrezchino.piezas.Pieza
-com/example/ajedrezchino/piezas/general.java
- com.example.ajedrezchino.piezas.general
+com/example/ajedrezchino/Help.java
+ com.example.ajedrezchino.Help
+ com.example.ajedrezchino.Help$1
 com/example/ajedrezchino/nombre.java
  com.example.ajedrezchino.nombre
  com.example.ajedrezchino.nombre$1
