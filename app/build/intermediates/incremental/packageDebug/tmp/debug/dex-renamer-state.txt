@@ -1,4 +1,4 @@
-#Mon Nov 30 16:33:02 CET 2020
+#Mon Nov 30 16:48:30 CET 2020
 base.0=C\:\\Users\\hecto\\StudioProjects\\Proyecto-HoresDual\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (posicionclickada.getCol() >= 3 && posicionclickada.getCol() <= 5 && posicionclickada.getRow() >= 0 && posicionclickada.getRow() <= 2) {
             contador++;
             tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
-            if (contador == 1){
+            if (contador == 2){
                 tablero[4][0].setpieza(null);
             }
             else {
