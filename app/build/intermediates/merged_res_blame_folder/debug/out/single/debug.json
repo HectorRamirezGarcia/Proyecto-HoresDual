@@ -1,19 +1,19 @@
 [
     {
-        "merged": "C:\\Users\\hecto\\StudioProjects\\Proyecto-HoresDual\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\hecto\\StudioProjects\\Proyecto-HoresDual\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
-    },
-    {
         "merged": "C:\\Users\\hecto\\StudioProjects\\Proyecto-HoresDual\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher_background.png.flat",
         "source": "C:\\Users\\hecto\\StudioProjects\\Proyecto-HoresDual\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\hecto\\StudioProjects\\Proyecto-HoresDual\\app\\build\\intermediates\\res\\merged\\debug\\drawable_naranja.png.flat",
-        "source": "C:\\Users\\hecto\\StudioProjects\\Proyecto-HoresDual\\app\\src\\main\\res\\drawable\\naranja.png"
+        "merged": "C:\\Users\\hecto\\StudioProjects\\Proyecto-HoresDual\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\hecto\\StudioProjects\\Proyecto-HoresDual\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
     },
     {
         "merged": "C:\\Users\\hecto\\StudioProjects\\Proyecto-HoresDual\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_launcher_background.png.flat",
         "source": "C:\\Users\\hecto\\StudioProjects\\Proyecto-HoresDual\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\hecto\\StudioProjects\\Proyecto-HoresDual\\app\\build\\intermediates\\res\\merged\\debug\\drawable_naranja.png.flat",
+        "source": "C:\\Users\\hecto\\StudioProjects\\Proyecto-HoresDual\\app\\src\\main\\res\\drawable\\naranja.png"
     },
     {
         "merged": "C:\\Users\\hecto\\StudioProjects\\Proyecto-HoresDual\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher_background.png.flat",
@@ -34,6 +34,10 @@
     {
         "merged": "C:\\Users\\hecto\\StudioProjects\\Proyecto-HoresDual\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_preguntas.png.flat",
         "source": "C:\\Users\\hecto\\StudioProjects\\Proyecto-HoresDual\\app\\src\\main\\res\\drawable-ldpi\\preguntas.png"
+    },
+    {
+        "merged": "C:\\Users\\hecto\\StudioProjects\\Proyecto-HoresDual\\app\\build\\intermediates\\res\\merged\\debug\\drawable_flechablanca.png.flat",
+        "source": "C:\\Users\\hecto\\StudioProjects\\Proyecto-HoresDual\\app\\src\\main\\res\\drawable\\flechablanca.png"
     },
     {
         "merged": "C:\\Users\\hecto\\StudioProjects\\Proyecto-HoresDual\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",

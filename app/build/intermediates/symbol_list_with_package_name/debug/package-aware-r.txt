@@ -1566,6 +1566,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable flechablanca
 drawable fondo
 drawable fondo_text_menu
 drawable ic_launcher_background
