@@ -21,9 +21,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public posicion[][] tablero = new posicion[9][5];
     public TextView[][] ftablero = new TextView[9][5];
     public Coordenadas posicionclickada = new Coordenadas(0, 0);
-    public int contador = 0, contadorP=0, contMov=0;
+    public int contador = 0, contadorP=0, contMov=0, contadorE= 0;
     public Coordenadas ultimaposicion = null;
-    public boolean primeravez = true;
+    public boolean primeravez = true, correctMovGen = false;
 
     Pieza xgeneral, ygeneral;
 
@@ -141,6 +141,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         posicionclickada.setRow(row);
         posicionclickada.setCol(col);
 
+        if (contadorE == 0){
+            ultimaposicion = new Coordenadas(4, 0);
+            contadorE++;
+        }
+
 
         Log.i("vegetal", Integer.toString(row));
         Log.i("vegetal", Integer.toString(col));
@@ -156,21 +161,193 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void general () {
         if (posicionclickada.getCol() >= 3 && posicionclickada.getCol() <= 5 && posicionclickada.getRow() >= 0 && posicionclickada.getRow() <= 2) {
-            contador++;
-            tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
-            if (contador == 2){
-                tablero[4][0].setpieza(null);
-            }
-            else {
-                if (contMov == 2){
-                    if (tablero[ultimaposicion.getRow()][ultimaposicion.getCol()] != tablero[posicionclickada.getCol()][posicionclickada.getRow()]){
-                        tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
-                        contMov = 0;
+            if (ultimaposicion.getRow() == 4 && ultimaposicion.getCol() == 0){
+                if (posicionclickada.getCol() == 3 && posicionclickada.getRow() == 0){
+                    contador++;
+                    correctMovGen = true;
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                }
+                if (posicionclickada.getCol() == 5 && posicionclickada.getRow() == 0){
+                    contador++;
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    correctMovGen = true;
+                }
+                if (posicionclickada.getCol() == 4 && posicionclickada.getRow() == 1){
+                    contador++;
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    correctMovGen = true;
+                }
+                contador++;
+                if (contador >= 2){
+                    contador = 0;
+                    if (correctMovGen == true){
+                        tablero[4][0].setpieza(null);
+                        ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
                     }
                 }
-                contMov++;
             }
-            ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+            if (ultimaposicion.getRow() == 5 && ultimaposicion.getCol() == 0){
+                if (posicionclickada.getCol() == 5 && posicionclickada.getRow() == 1){
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                    ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+                }
+                if (posicionclickada.getCol() == 4 && posicionclickada.getRow() == 0){
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                    ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+                }
+                if (posicionclickada.getCol() == 4 && posicionclickada.getRow() == 1){
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                    ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+                }
+            }
+            if (ultimaposicion.getRow() == 3 && ultimaposicion.getCol() == 0){
+                if (posicionclickada.getCol() == 3 && posicionclickada.getRow() == 1){
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                    ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+                }
+                if (posicionclickada.getCol() == 4 && posicionclickada.getRow() == 0){
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                    ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+                }
+                if (posicionclickada.getCol() == 4 && posicionclickada.getRow() == 1){
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                    ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+                }
+            }
+
+            if (ultimaposicion.getRow() == 4 && ultimaposicion.getCol() == 1){
+                if (posicionclickada.getCol() == 3 && posicionclickada.getRow() == 1){
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                    ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+                }
+                if (posicionclickada.getCol() == 5 && posicionclickada.getRow() == 1){
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                    ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+                }
+                if (posicionclickada.getCol() == 4 && posicionclickada.getRow() == 0){
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                    ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+                }
+                if (posicionclickada.getCol() == 5 && posicionclickada.getRow() == 0){
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                    ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+                }
+                if (posicionclickada.getCol() == 3 && posicionclickada.getRow() == 0){
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                    ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+                }
+                if (posicionclickada.getCol() == 3 && posicionclickada.getRow() == 2){
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                    ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+                }
+                if (posicionclickada.getCol() == 4 && posicionclickada.getRow() == 2){
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                    ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+                }
+                if (posicionclickada.getCol() == 5 && posicionclickada.getRow() == 2){
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                    ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+                }
+            }
+            if (ultimaposicion.getRow() == 3 && ultimaposicion.getCol() == 1){
+                if (posicionclickada.getCol() == 4 && posicionclickada.getRow() == 1){
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                    ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+                }
+                if (posicionclickada.getCol() == 3 && posicionclickada.getRow() == 0){
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                    ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+                }
+                if (posicionclickada.getCol() == 3 && posicionclickada.getRow() == 2){
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                    ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+                }
+            }
+            if (ultimaposicion.getRow() == 5 && ultimaposicion.getCol() == 1){
+                if (posicionclickada.getCol() == 5 && posicionclickada.getRow() == 0){
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                    ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+                }
+                if (posicionclickada.getCol() == 4 && posicionclickada.getRow() == 1){
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                    ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+                }
+                if (posicionclickada.getCol() == 5 && posicionclickada.getRow() == 2){
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                    ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+                }
+            }
+            if (ultimaposicion.getRow() == 3 && ultimaposicion.getCol() == 2){
+                if (posicionclickada.getCol() == 4 && posicionclickada.getRow() == 2){
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                    ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+                }
+                if (posicionclickada.getCol() == 3 && posicionclickada.getRow() == 1){
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                    ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+                }
+                if (posicionclickada.getCol() == 4 && posicionclickada.getRow() == 1){
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                    ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+                }
+            }
+            if (ultimaposicion.getRow() == 4 && ultimaposicion.getCol() == 2){
+                if (posicionclickada.getCol() == 4 && posicionclickada.getRow() == 1){
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                    ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+                }
+                if (posicionclickada.getCol() == 3 && posicionclickada.getRow() == 2){
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                    ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+                }
+                if (posicionclickada.getCol() == 5 && posicionclickada.getRow() == 2){
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                    ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+                }
+            }
+            if (ultimaposicion.getRow() == 5 && ultimaposicion.getCol() == 2){
+                if (posicionclickada.getCol() == 4 && posicionclickada.getRow() == 1){
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                    ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+                }
+                if (posicionclickada.getCol() == 5 && posicionclickada.getRow() == 1){
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                    ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+                }
+                if (posicionclickada.getCol() == 4 && posicionclickada.getRow() == 2){
+                    tablero[posicionclickada.getCol()][posicionclickada.getRow()].setpieza(xgeneral);
+                    tablero[ultimaposicion.getRow()][ultimaposicion.getCol()].setpieza(null);
+                    ultimaposicion = new Coordenadas(posicionclickada.getCol(), posicionclickada.getRow());
+                }
+            }
         }
     }
     public void movimientoGeneral() {
