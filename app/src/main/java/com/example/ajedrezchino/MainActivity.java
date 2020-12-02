@@ -24,13 +24,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public int contador = 0, contadorP=0, contMov=0, contadorE= 0;
     public Coordenadas ultimaposicion = null;
     public boolean primeravez = true, correctMovGen = false;
-
+    public TextView TextNombre1;
+    public TextView TextNombre2;
     Pieza xgeneral, ygeneral;
 
     @Override
     protected void onCreate (Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        TextNombre1 = findViewById(R.id.TextNombre1);
+        TextNombre2 = findViewById(R.id.TextNombre2);
+        String jugador1=getIntent().getStringExtra("JUGADOR1");
+        String jugador2=getIntent().getStringExtra("JUGADOR2");
+        TextNombre1.setText(jugador1);
+        TextNombre2.setText(jugador2);
         inicializartablero();
     }
 

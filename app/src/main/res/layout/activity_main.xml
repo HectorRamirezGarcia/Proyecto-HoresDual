@@ -603,7 +603,7 @@
         app:layout_constraintVertical_bias="0.464" />
 
     <TextView
-        android:id="@+id/textViewName1"
+        android:id="@+id/TextNombre1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -612,10 +612,10 @@
         app:layout_constraintHorizontal_bias="0.099"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.96" />
+        app:layout_constraintVertical_bias="0.098" />
 
     <TextView
-        android:id="@+id/textViewName2"
+        android:id="@+id/TextNombre2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"

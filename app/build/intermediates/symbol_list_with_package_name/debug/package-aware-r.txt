@@ -1671,6 +1671,8 @@ id SHOW_PROGRESS
 id SYM
 id TOP_END
 id TOP_START
+id TextNombre1
+id TextNombre2
 id TxtNombre
 id TxtNombre2
 id ViewPager
@@ -2014,8 +2016,6 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textView
-id textViewName1
-id textViewName2
 id text_input_end_icon
 id text_input_start_icon
 id textinput_counter

@@ -1,4 +1,4 @@
-#Tue Dec 01 17:19:35 CET 2020
-base.0=C\:\\Users\\hecto\\StudioProjects\\Proyecto-HoresDual\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+#Wed Dec 02 16:40:56 CET 2020
+base.0=C\:\\Users\\eric2\\AndroidStudioProjects\\Proyecto-HoresDual\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
